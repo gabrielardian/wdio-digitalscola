@@ -9,7 +9,9 @@ describe('Suacedemo Test', () => {
         const passwordTextbox =  await browser.$("#password")    
         const loginBotton =  await browser.$('//input[@value="Login"]')
         const cartIcon = await browser.$("#shopping_cart_container")
-        // const addBackpack = await $('#add-to-cart-sauce-labs-backpack');
+        const addBackpack = await browser.$("#add-to-cart-sauce-labs-backpack")
+        const coontainer= await browser.$("#shopping_cart_container")
+        const removeBag = await browser.$("#remove-sauce-labs-backpack")
 
 
 
@@ -20,28 +22,29 @@ describe('Suacedemo Test', () => {
         console.log(await loginBotton.getValue())
         await loginBotton.click()
         
-        
-
         //DASHBOARD PAGE
         await expect(cartIcon).toBeDisplayed()
-        
-        // ADD TO CHART
-        // await addBackpack.click();
-        // await browser.pause(8000)
         await browser.pause(2000)
-    });
-
-    it('ADD TO CART', async() => {
-        const addBackpack = await browser.$("#add-to-cart-sauce-labs-backpack")
-        const coontainer= await browser.$("#shopping_cart_container")
-        const removeBag = await browser.$("#remove-sauce-labs-backpack")
-        
+       
+        // ADD TO CHART
         await addBackpack.click()
         await coontainer.click()
-
-
         await expect(removeBag).toBeDisplayed()
         await browser.pause(8000)
+      
     });
+
+    // it('ADD TO CART', async() => {
+    //     const addBackpack = await browser.$("#add-to-cart-sauce-labs-backpack")
+    //     const coontainer= await browser.$("#shopping_cart_container")
+    //     const removeBag = await browser.$("#remove-sauce-labs-backpack")
+        
+    //     await addBackpack.click()
+    //     await coontainer.click()
+
+
+    //     await expect(removeBag).toBeDisplayed()
+    //     await browser.pause(8000)
+    // });
     
 });
